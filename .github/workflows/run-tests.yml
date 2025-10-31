@@ -8,6 +8,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,7 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run backend tests
-        run: |
-          echo "=== Running Jest Tests ==="
-          npm test
+      - name: Run tests
+        run: npx jest --runInBand
